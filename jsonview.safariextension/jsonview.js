@@ -66,7 +66,7 @@ if(is_json){
           return this.decorateWithSpan(value, 'num');
         }
         else if (valueType == 'string') {
-          if (/^(http|https|file):\/\/[^\s]+$/i.test(value)) {
+          if (/^(http|https|file):\/\/[^\s]+$/i.test(value) || value[0] === '/') {
             return '<a href="' + value + '"><span class="q">&quot;</span>' + this.jsString(value) + '<span class="q">&quot;</span></a>';
           } else {
             return '<span class="string">&quot;' + this.jsString(value) + '&quot;</span>';
